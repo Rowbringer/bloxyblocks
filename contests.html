@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contests - ROBLOX</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #E8F0F5; }
+        .report-link { text-align: center; background: white; padding: 5px; font-size: 11px; color: #0066CC; }
+        .header { position: relative; height: 100px; background: linear-gradient(to bottom, #4A9FD8 0%, #6BB4E0 30%, #FFE55C 70%, #FFB84D 85%, #FF9933 100%); }
+        .login-btn, .play-now-btn { position: absolute; top: 10px; background: #6B9AC4; border: 2px solid #2D5A7B; color: white; padding: 5px 15px; border-radius: 3px; cursor: pointer; font-size: 11px; z-index: 10; }
+        .login-btn { left: 10px; }
+        .play-now-btn { right: 10px; background: #5CB85C; border: 4px solid #2E7D32; padding: 10px 25px; font-size: 18px; }
+        .logo { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 60px; color: #E63946; z-index: 10; }
+        .sun { position: absolute; bottom: 20px; left: 80px; width: 70px; height: 70px; background: #FFD700; border-radius: 50%; }
+        .nav { background: linear-gradient(to bottom, #4A7BA7 0%, #356196 100%); border-top: 1px solid #2D5A7B; border-bottom: 2px solid #1F3A52; padding: 12px 8px; display: flex; justify-content: center; flex-wrap: wrap; }
+        .nav a { color: white; text-decoration: none; font-weight: bold; font-size: 12px; padding: 8px 10px; }
+        .nav a:hover { background-color: rgba(0,0,0,0.2); }
+        .nav .separator { color: #B0C4D4; }
+        .announcement { background: linear-gradient(to bottom, #FBBF24 0%, #F59E0B 100%); padding: 10px; text-align: center; color: white; font-weight: bold; }
+        .container { max-width: 1000px; margin: 20px auto; padding: 20px; background: rgba(255,255,255,0.8); border: 1px solid #D1D5DB; border-radius: 5px; }
+        h1 { color: #1F3A52; margin-bottom: 20px; border-bottom: 2px solid #4A7BA7; padding-bottom: 10px; }
+        .contest-list { list-style: none; }
+        .contest-item { background: white; border: 1px solid #D1D5DB; border-radius: 5px; padding: 15px; margin-bottom: 15px; }
+        .contest-title { font-size: 16px; font-weight: bold; color: #1F3A52; margin-bottom: 8px; }
+        .contest-desc { font-size: 13px; color: #333; margin-bottom: 10px; }
+        .contest-meta { font-size: 11px; color: #6B7280; }
+        .badge { background: #4A7BA7; color: white; padding: 2px 8px; border-radius: 3px; font-size: 10px; display: inline-block; margin-top: 8px; }
+    </style>
+</head>
+<body>
+    <div class="report-link">[ report ]</div>
+    <div class="header">
+        <button class="login-btn">Login</button>
+        <button class="play-now-btn">PLAY NOW</button>
+        <div class="logo">BloxyRocks</div>
+        <div class="sun"></div>
+    </div>
+    <nav class="nav">
+        <a href="index.html">Home</a> <span class="separator">|</span>
+        <a href="contests.html">Contests</a> <span class="separator">|</span>
+        <a href="help.html">Help</a>
+    </nav>
+    <div class="announcement">Check out the latest contests!</div>
+    <div class="container">
+        <h1>Active Contests</h1>
+        <ul class="contest-list">
+            <li class="contest-item">
+                <div class="contest-title">Building Challenge 2024</div>
+                <div class="contest-desc">Create the most creative structure and win amazing prizes!</div>
+                <div class="contest-meta">Ends: January 31, 2024 | Prize Pool: 50,000 ROBUX</div>
+                <span class="badge">Active</span>
+            </li>
+            <li class="contest-item">
+                <div class="contest-title">Game Dev Competition</div>
+                <div class="contest-desc">Develop an engaging game for a chance to be featured</div>
+                <div class="contest-meta">Ends: February 14, 2024 | Prize Pool: 100,000 ROBUX</div>
+                <span class="badge">Active</span>
+            </li>
+            <li class="contest-item">
+                <div class="contest-title">Avatar Design Contest</div>
+                <div class="contest-desc">Show off your creative character design skills</div>
+                <div class="contest-meta">Ends: February 28, 2024 | Prize Pool: 25,000 ROBUX</div>
+                <span class="badge">Active</span>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

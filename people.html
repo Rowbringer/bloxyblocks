@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People - ROBLOX</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E8F0F5;
+        }
+
+        .report-link {
+            text-align: center;
+            background: white;
+            padding: 5px;
+            font-size: 11px;
+            color: #0066CC;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Header */
+        .header {
+            position: relative;
+            height: 100px;
+            background: linear-gradient(to bottom, #4A9FD8 0%, #6BB4E0 30%, #FFE55C 70%, #FFB84D 85%, #FF9933 100%);
+            overflow: hidden;
+        }
+
+        .login-btn, .play-now-btn {
+            position: absolute;
+            top: 10px;
+            background: linear-gradient(to bottom, #6B9AC4 0%, #4A7BA7 100%);
+            border: 2px solid #2D5A7B;
+            color: white;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            z-index: 10;
+        }
+
+        .login-btn { left: 10px; }
+
+        .play-now-btn {
+            right: 10px;
+            background: linear-gradient(to bottom, #5CB85C 0%, #4CAF50 50%, #388E3C 100%);
+            border: 4px solid #2E7D32;
+            font-weight: 900;
+            padding: 10px 25px;
+            font-size: 18px;
+            font-family: Impact, sans-serif;
+        }
+
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            font-weight: 900;
+            font-family: Impact, sans-serif;
+            color: #E63946;
+            letter-spacing: 3px;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .sun {
+            position: absolute;
+            bottom: 20px;
+            left: 80px;
+            width: 70px;
+            height: 70px;
+            background: #FFD700;
+            border-radius: 50%;
+        }
+
+        .buildings {
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+        }
+
+        .buildings.left { left: 0; }
+        .buildings.right { right: 0; }
+
+        .building {
+            background: #555;
+            position: relative;
+        }
+
+        /* Navigation */
+        .nav {
+            background: linear-gradient(to bottom, #4A7BA7 0%, #356196 100%);
+            border-top: 1px solid #2D5A7B;
+            border-bottom: 2px solid #1F3A52;
+            padding: 12px 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 12px;
+            padding: 8px 10px;
+        }
+
+        .nav a:hover {
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 2px;
+        }
+
+        .nav .separator {
+            color: #B0C4D4;
+        }
+
+        .announcement {
+            background: linear-gradient(to bottom, #FBBF24 0%, #F59E0B 100%);
+            border-top: 2px solid #B45309;
+            border-bottom: 2px solid #92400E;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 15px;
+            background: rgba(255,255,255,0.8);
+            border: 1px solid #D1D5DB;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #1F3A52;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #4A7BA7;
+            padding-bottom: 10px;
+        }
+
+        .search-box {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #9CA3AF;
+            border-radius: 3px;
+        }
+
+        .search-box button {
+            background: linear-gradient(to bottom, #4A7BA7 0%, #356196 100%);
+            border: 1px solid #1F3A52;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .user-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .user-card {
+            background: white;
+            border: 1px solid #D1D5DB;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #4A7BA7, #6B9AC4);
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+        }
+
+        .username {
+            font-weight: bold;
+            color: #1F3A52;
+            margin-bottom: 5px;
+        }
+
+        .user-status {
+            font-size: 11px;
+            color: #6B7280;
+            margin-bottom: 10px;
+        }
+
+        .follow-btn {
+            background: linear-gradient(to bottom, #4A7BA7 0%, #356196 100%);
+            border: 1px solid #1F3A52;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .user-list {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="report-link">[ report ]</div>
+
+    <div class="header">
+        <button class="login-btn">Login</button>
+        <button class="play-now-btn">PLAY NOW</button>
+        <div class="logo">BloxyRocks</div>
+        <div class="sun"></div>
+        <div class="buildings left">
+            <div class="building" style="width: 50px; height: 50px;"></div>
+            <div class="building" style="width: 40px; height: 35px;"></div>
+            <div class="building" style="width: 35px; height: 65px;"></div>
+        </div>
+        <div class="buildings right">
+            <div class="building" style="width: 50px; height: 45px;"></div>
+            <div class="building" style="width: 40px; height: 65px;"></div>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <a href="index.html">My BloxyRocks</a>
+        <span class="separator">|</span>
+        <a href="games.html">Games</a>
+        <span class="separator">|</span>
+        <a href="catalog.html">Catalog</a>
+        <span class="separator">|</span>
+        <a href="people.html">People</a>
+        <span class="separator">|</span>
+        <a href="builders-club.html">Builders Club</a>
+        <span class="separator">|</span>
+        <a href="forum.html">Forum</a>
+        <span class="separator">|</span>
+        <a href="help.html">Help</a>
+    </nav>
+
+    <div class="announcement">
+        Are you an experienced BloRockian? Come help us out at our discord
+    </div>
+
+    <div class="container">
+        <h1>Find Users</h1>
+        
+        <div class="search-box">
+            <input type="text" placeholder="Search for users...">
+            <button>Search</button>
+        </div>
+
+        <div class="user-list">
+            <div class="user-card">
+                <div class="avatar">👤</div>
+                <div class="username">Player1</div>
+                <div class="user-status">Online now</div>
+                <button class="follow-btn">Follow</button>
+            </div>
+
+            <div class="user-card">
+                <div class="avatar">👾</div>
+                <div class="username">Player2</div>
+                <div class="user-status">Online now</div>
+                <button class="follow-btn">Follow</button>
+            </div>
+
+            <div class="user-card">
+                <div class="avatar">🎮</div>
+                <div class="username">Player3</div>
+                <div class="user-status">Last seen 2h ago</div>
+                <button class="follow-btn">Follow</button>
+            </div>
+
+            <div class="user-card">
+                <div class="avatar">🏆</div>
+                <div class="username">Player4</div>
+                <div class="user-status">Last seen 1d ago</div>
+                <button class="follow-btn">Follow</button>
+            </div>
+
+            <div class="user-card">
+                <div class="avatar">⭐</div>
+                <div class="username">Player5</div>
+                <div class="user-status">Online now</div>
+                <button class="follow-btn">Follow</button>
+            </div>
+
+            <div class="user-card">
+                <div class="avatar">🎯</div>
+                <div class="username">Player6</div>
+                <div class="user-status">Last seen 3h ago</div>
+                <button class="follow-btn">Follow</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

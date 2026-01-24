@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builders Club - ROBLOX</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #E8F0F5; }
+        .report-link { text-align: center; background: white; padding: 5px; font-size: 11px; color: #0066CC; text-decoration: underline; }
+        .header { position: relative; height: 100px; background: linear-gradient(to bottom, #4A9FD8 0%, #6BB4E0 30%, #FFE55C 70%, #FFB84D 85%, #FF9933 100%); overflow: hidden; }
+        .login-btn, .play-now-btn { position: absolute; top: 10px; background: #6B9AC4; border: 2px solid #2D5A7B; color: white; padding: 5px 15px; border-radius: 3px; cursor: pointer; font-size: 11px; z-index: 10; }
+        .login-btn { left: 10px; }
+        .play-now-btn { right: 10px; background: #5CB85C; border: 4px solid #2E7D32; font-weight: 900; padding: 10px 25px; font-size: 18px; }
+        .logo { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 60px; font-weight: 900; color: #E63946; z-index: 10; }
+        .sun { position: absolute; bottom: 20px; left: 80px; width: 70px; height: 70px; background: #FFD700; border-radius: 50%; }
+        .buildings { position: absolute; bottom: 0; display: flex; gap: 2px; align-items: flex-end; }
+        .buildings.left { left: 0; }
+        .buildings.right { right: 0; }
+        .building { background: #555; }
+        .nav { background: linear-gradient(to bottom, #4A7BA7 0%, #356196 100%); border-top: 1px solid #2D5A7B; border-bottom: 2px solid #1F3A52; padding: 12px 8px; display: flex; justify-content: center; flex-wrap: wrap; }
+        .nav a { color: white; text-decoration: none; font-weight: bold; font-size: 12px; padding: 8px 10px; }
+        .nav a:hover { background-color: rgba(0,0,0,0.2); border-radius: 2px; }
+        .nav .separator { color: #B0C4D4; }
+        .announcement { background: linear-gradient(to bottom, #FBBF24 0%, #F59E0B 100%); padding: 10px; text-align: center; color: white; font-weight: bold; }
+        .container { max-width: 1000px; margin: 20px auto; padding: 20px; background: rgba(255,255,255,0.8); border: 1px solid #D1D5DB; border-radius: 5px; }
+        h1 { color: #1F3A52; margin-bottom: 20px; border-bottom: 2px solid #4A7BA7; padding-bottom: 10px; }
+        .bc-content { line-height: 1.8; color: #333; }
+        .bc-benefits { list-style: none; margin: 20px 0; }
+        .bc-benefits li { background: #F0F4F8; padding: 12px; margin: 8px 0; border-left: 4px solid #4A7BA7; }
+        .join-btn { background: linear-gradient(to bottom, #5CB85C 0%, #4CAF50 50%, #388E3C 100%); border: 3px solid #2E7D32; color: white; padding: 15px 30px; font-weight: bold; font-size: 16px; border-radius: 5px; cursor: pointer; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="report-link">[ report ]</div>
+    <div class="header">
+        <button class="login-btn">Login</button>
+        <button class="play-now-btn">PLAY NOW</button>
+        <div class="logo">BloxyRocks</div>
+        <div class="sun"></div>
+    </div>
+    <nav class="nav">
+        <a href="index.html">My BloxyRocks</a> <span class="separator">|</span>
+        <a href="games.html">Games</a> <span class="separator">|</span>
+        <a href="builders-club.html">Builders Club</a> <span class="separator">|</span>
+        <a href="help.html">Help</a>
+    </nav>
+    <div class="announcement">Join Builders Club for exclusive benefits!</div>
+    <div class="container">
+        <h1>Builders Club</h1>
+        <div class="bc-content">
+            <p>Become a Builders Club member and unlock exclusive features!</p>
+            <ul class="bc-benefits">
+                <li>✓ Daily ROBUX stipend</li>
+                <li>✓ Exclusive avatar items</li>
+                <li>✓ Advanced building tools</li>
+                <li>✓ Extra game slots</li>
+                <li>✓ Special trading privileges</li>
+                <li>✓ Priority customer support</li>
+            </ul>
+            <button class="join-btn">Join Builders Club Now</button>
+        </div>
+    </div>
+</body>
+</html>

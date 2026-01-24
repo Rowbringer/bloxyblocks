@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - ROBLOX</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background-color: #E8F0F5; }
+        .report-link { text-align: center; background: white; padding: 5px; font-size: 11px; color: #0066CC; }
+        .header { position: relative; height: 100px; background: linear-gradient(to bottom, #4A9FD8 0%, #6BB4E0 30%, #FFE55C 70%, #FFB84D 85%, #FF9933 100%); }
+        .login-btn, .play-now-btn { position: absolute; top: 10px; background: #6B9AC4; border: 2px solid #2D5A7B; color: white; padding: 5px 15px; border-radius: 3px; cursor: pointer; z-index: 10; }
+        .login-btn { left: 10px; }
+        .play-now-btn { right: 10px; background: #5CB85C; border: 4px solid #2E7D32; padding: 10px 25px; }
+        .logo { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 60px; color: #E63946; z-index: 10; }
+        .sun { position: absolute; bottom: 20px; left: 80px; width: 70px; height: 70px; background: #FFD700; border-radius: 50%; }
+        .nav { background: linear-gradient(to bottom, #4A7BA7 0%, #356196 100%); border-top: 1px solid #2D5A7B; border-bottom: 2px solid #1F3A52; padding: 12px 8px; display: flex; justify-content: center; flex-wrap: wrap; }
+        .nav a { color: white; text-decoration: none; font-weight: bold; font-size: 12px; padding: 8px 10px; }
+        .nav a:hover { background-color: rgba(0,0,0,0.2); }
+        .announcement { background: linear-gradient(to bottom, #FBBF24 0%, #F59E0B 100%); padding: 10px; text-align: center; color: white; }
+        .container { max-width: 1000px; margin: 20px auto; padding: 20px; background: rgba(255,255,255,0.8); border: 1px solid #D1D5DB; border-radius: 5px; }
+        h1 { color: #1F3A52; margin-bottom: 20px; border-bottom: 2px solid #4A7BA7; padding-bottom: 10px; }
+        .news-article { background: white; border: 1px solid #D1D5DB; border-radius: 5px; padding: 15px; margin-bottom: 15px; }
+        .article-title { font-size: 16px; font-weight: bold; color: #0066CC; cursor: pointer; margin-bottom: 8px; }
+        .article-title:hover { text-decoration: underline; }
+        .article-date { font-size: 11px; color: #6B7280; margin-bottom: 10px; }
+        .article-content { font-size: 13px; color: #333; line-height: 1.6; }
+        .read-more { color: #0066CC; text-decoration: none; font-weight: bold; cursor: pointer; }
+        .read-more:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="report-link">[ report ]</div>
+    <div class="header">
+        <button class="login-btn">Login</button>
+        <button class="play-now-btn">PLAY NOW</button>
+        <div class="logo">BloxyRocks</div>
+        <div class="sun"></div>
+    </div>
+    <nav class="nav">
+        <a href="index.html">Home</a> <span style="color: #B0C4D4;">|</span>
+        <a href="news.html">News</a> <span style="color: #B0C4D4;">|</span>
+        <a href="help.html">Help</a>
+    </nav>
+    <div class="announcement">Latest BloxyRocks News and Updates</div>
+    <div class="container">
+        <h1>Latest News</h1>
+        
+        <div class="news-article">
+            <div class="article-title">New Featured Games Released!</div>
+            <div class="article-date">January 24, 2024</div>
+            <div class="article-content">
+                We're excited to announce three amazing new featured games on the platform. Check them out and experience the creativity of our talented developers!
+                <a href="#" class="read-more"> Read more...</a>
+            </div>
+        </div>
+
+        <div class="news-article">
+            <div class="article-title">Platform Maintenance Scheduled</div>
+            <div class="article-date">January 23, 2024</div>
+            <div class="article-content">
+                We will be performing scheduled maintenance on January 25th from 2-4 AM UTC. Please plan your gaming accordingly.
+                <a href="#" class="read-more"> Read more...</a>
+            </div>
+        </div>
+
+        <div class="news-article">
+            <div class="article-title">Builder Contest Winners Announced</div>
+            <div class="article-date">January 22, 2024</div>
+            <div class="article-content">
+                Congratulations to our latest building contest winners! Their amazing creations have earned them exclusive rewards and recognition.
+                <a href="#" class="read-more"> Read more...</a>
+            </div>
+        </div>
+
+        <div class="news-article">
+            <div class="article-title">New Avatar Items Now Available</div>
+            <div class="article-date">January 20, 2024</div>
+            <div class="article-content">
+                Check out our latest collection of avatar items in the catalog. Express your unique style with new accessories and clothing!
+                <a href="#" class="read-more"> Read more...</a>
+            </div>
+        </div>
+
+        <div class="news-article">
+            <div class="article-title">Community Spotlight: Amazing Creations</div>
+            <div class="article-date">January 18, 2024</div>
+            <div class="article-content">
+                This week we're highlighting some incredible games and creations made by our amazing community members.
+                <a href="#" class="read-more"> Read more...</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

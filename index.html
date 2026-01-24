@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBLOX - 2008</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #E8F0F5;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+        }
+
+        .report-link {
+            text-align: center;
+            background: white;
+            padding: 5px;
+            font-size: 11px;
+            color: #0066CC;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Header with skyline */
+        .header {
+            position: relative;
+            height: 100px;
+            background: linear-gradient(to bottom, #4A9FD8 0%, #6BB4E0 30%, #FFE55C 70%, #FFB84D 85%, #FF9933 100%);
+            overflow: hidden;
+        }
+
+        .login-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: linear-gradient(to bottom, #6B9AC4 0%, #4A7BA7 100%);
+            border: 2px solid #2D5A7B;
+            color: white;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            z-index: 10;
+        }
+
+        .play-now-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(to bottom, #5CB85C 0%, #4CAF50 50%, #388E3C 100%);
+            border: 4px solid #2E7D32;
+            color: white;
+            font-weight: 900;
+            padding: 10px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+            z-index: 10;
+            font-family: Impact, sans-serif;
+        }
+
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+            font-weight: 900;
+            font-family: Impact, sans-serif;
+            color: #E63946;
+            letter-spacing: 3px;
+            text-shadow: 
+                -4px -4px 0 white,
+                4px -4px 0 white,
+                -4px 4px 0 white,
+                4px 4px 0 white,
+                4px 4px 0 #000,
+                5px 5px 0 #8B0000;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        /* Sun */
+        .sun {
+            position: absolute;
+            bottom: 20px;
+            left: 80px;
+            width: 70px;
+            height: 70px;
+            background: #FFD700;
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(255,215,0,0.5);
+        }
+
+        /* Buildings */
+        .buildings {
+            position: absolute;
+            bottom: 0;
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+        }
+
+        .buildings.left { left: 0; }
+        .buildings.right { right: 0; }
+        .buildings.center-left { left: 25%; }
+        .buildings.center-right { right: 25%; }
+
+        .building {
+            background: #555;
+            position: relative;
+        }
+
+        .building.b1 { width: 50px; height: 50px; background: #666; }
+        .building.b2 { width: 40px; height: 35px; background: #555; }
+        .building.b3 { width: 35px; height: 65px; background: #777; }
+        .building.b4 { width: 55px; height: 45px; background: #666; }
+        .building.b5 { width: 30px; height: 55px; background: #555; }
+        .building.b6 { width: 50px; height: 45px; background: #666; }
+        .building.b7 { width: 40px; height: 65px; background: #777; }
+        .building.b8 { width: 35px; height: 40px; background: #555; }
+
+        .window {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #4A90E2;
+            top: 5px;
+            left: 5px;
+        }
+
+        /* Navigation */
+        .nav {
+            background: linear-gradient(to bottom, #4A7BA7 0%, #356196 100%);
+            border-top: 1px solid #2D5A7B;
+            border-bottom: 2px solid #1F3A52;
+            padding: 12px 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 12px;
+            padding: 8px 10px;
+            display: inline-block;
+        }
+
+        .nav a:hover {
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 2px;
+        }
+
+        .nav .separator {
+            color: #B0C4D4;
+            padding: 0 2px;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 8px 4px;
+                gap: 2px;
+            }
+            
+            .nav a {
+                font-size: 11px;
+                padding: 6px 8px;
+            }
+        }
+
+        /* Announcement bar */
+        .announcement {
+            background: linear-gradient(to bottom, #FBBF24 0%, #F59E0B 100%);
+            border-top: 2px solid #B45309;
+            border-bottom: 2px solid #92400E;
+            padding: 10px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 13px;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+        }
+
+        /* Main content */
+        .container {
+            max-width: 1200px;
+            margin: 15px auto;
+            padding: 0 15px;
+            display: flex;
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                margin: 10px auto;
+                padding: 0 10px;
+                gap: 10px;
+            }
+        }
+
+        /* Login Panel */
+        .login-panel {
+            width: 180px;
+            flex-shrink: 0;
+            border: 2px solid #4A7BA7;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+
+        .login-panel-header {
+            background: linear-gradient(to bottom, #4A7BA7 0%, #356196 100%);
+            padding: 12px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            border-bottom: 1px solid #2D5A7B;
+        }
+
+        .login-panel-body {
+            background: linear-gradient(to bottom, #6B9AC4 0%, #5885B3 100%);
+            padding: 12px;
+        }
+
+        .login-panel label {
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 4px;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+        }
+
+        .login-panel input {
+            width: 100%;
+            padding: 6px;
+            margin-bottom: 10px;
+            border: 1px solid #4A7BA7;
+            border-radius: 3px;
+            font-size: 11px;
+        }
+
+        .login-panel button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 6px;
+            background: linear-gradient(to bottom, #356196 0%, #254473 100%);
+            border: 2px solid #1F3A52;
+            color: white;
+            font-weight: bold;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+        }
+
+        .login-panel button:hover {
+            background: linear-gradient(to bottom, #254473 0%, #1a305a 100%);
+        }
+
+        .login-panel a {
+            color: #E8F0F5;
+            font-size: 10px;
+            text-decoration: underline;
+            display: block;
+            text-align: center;
+            margin-top: 6px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .login-panel {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+
+        /* Main content area */
+        .main-content {
+            flex: 1;
+            background: rgba(255,255,255,0.6);
+            border: 1px solid #D1D5DB;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            min-height: 300px;
+            padding: 15px;
+        }
+
+        .main-content .report {
+            text-align: right;
+            font-size: 11px;
+            color: #0066CC;
+            text-decoration: underline;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .ad-space {
+            background: rgba(255,255,255,0.4);
+            border: 1px dashed #9CA3AF;
+            min-height: 250px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+
+        /* Bottom section */
+        .bottom-section {
+            max-width: 1200px;
+            margin: 15px auto;
+            padding: 0 15px;
+            display: flex;
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .bottom-section {
+                flex-direction: column;
+                margin: 10px auto;
+                padding: 0 10px;
+                gap: 10px;
+            }
+        }
+
+        /* Featured game banner */
+        .featured-banner {
+            flex: 1;
+        }
+
+        .game-banner {
+            background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%);
+            border: 2px solid #0EA5E9;
+            border-radius: 5px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+
+
+      
+        
+
+        .banner-text h2 {
+            font-size: 28px;
+            font-weight: 900;
+            font-family: Impact, sans-serif;
+            color: #E63946;
+            text-shadow: 2px 2px 0 #000, -1px -1px 0 #FFF;
+            margin-bottom: 5px;
+        }
+
+        .banner-text p {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .banner-text .free {
+            color: #16A34A;
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .banner-play-btn {
+            background: linear-gradient(to bottom, #5CB85C 0%, #4CAF50 50%, #388E3C 100%);
+            border: 3px solid #2E7D32;
+            color: white;
+            font-weight: 900;
+            padding: 15px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: Impact, sans-serif;
+            text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+            white-space: nowrap;
+        }
+
+        /* Featured game */
+        .featured-game {
+            border: 1px solid #D1D5DB;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .featured-game-header {
+            background: linear-gradient(to bottom, #F3F4F6 0%, #E5E7EB 100%);
+            padding: 8px 12px;
+            font-size: 12px;
+        }
+
+        .featured-game-header strong {
+            font-weight: bold;
+        }
+
+        .featured-game-body {
+            background: white;
+            padding: 8px 12px;
+            border-top: 1px solid #D1D5DB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .featured-game-body a {
+            color: #0066CC;
+            text-decoration: none;
+        }
+
+        .featured-game-body a:hover {
+            text-decoration: underline;
+        }
+
+        .play-this-btn {
+            background: linear-gradient(to bottom, #F3F4F6 0%, #E5E7EB 100%);
+            border: 1px solid #9CA3AF;
+            color: #374151;
+            padding: 5px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* Parents section */
+        .parents-section {
+            width: 260px;
+            flex-shrink: 0;
+            border: 2px solid #4A7BA7;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .parents-header {
+            background: linear-gradient(to bottom, #4A7BA7 0%, #356196 100%);
+            padding: 12px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            border-bottom: 1px solid #2D5A7B;
+        }
+
+        .parents-body {
+            background: #F0F4F8;
+            padding: 12px;
+        }
+
+        @media (max-width: 768px) {
+            .parents-section {
+                width: 100%;
+            }
+        }
+
+        .parents-content {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .parents-text {
+            flex: 1;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .parents-text p {
+            margin-bottom: 10px;
+        }
+
+        .parents-text strong {
+            font-weight: bold;
+        }
+
+        .badges {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .badge-row {
+            display: flex;
+            gap: 5px;
+        }
+
+        .badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+            border: 2px solid;
+        }
+
+        .badge.truste {
+            background: linear-gradient(to bottom, #3B82F6 0%, #2563EB 100%);
+            border-color: #1E40AF;
+            color: white;
+        }
+
+        .badge.bbb {
+            background: linear-gradient(to bottom, #FFFFFF 0%, #E5E7EB 100%);
+            border-color: #9CA3AF;
+            color: #1E40AF;
+        }
+
+        .badge.check {
+            background: linear-gradient(to bottom, #10B981 0%, #059669 100%);
+            border-color: #047857;
+            color: white;
+            font-size: 20px;
+        }
+
+        .parents-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .parents-buttons button {
+            background: linear-gradient(to bottom, #E5E7EB 0%, #D1D5DB 100%);
+            border: 2px solid #9CA3AF;
+            color: #1F2937;
+            padding: 5px 12px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Report Link -->
+    <div class="report-link">[ report ]</div>
+
+    <!-- Header with Skyline -->
+    <div class="header">
+        <button class="login-btn">Login</button>
+        <button class="play-now-btn">PLAY NOW</button>
+        <div class="logo">BloxyRocks</div>
+        <div class="sun"></div>
+        
+        <!-- Buildings Left -->
+        <div class="buildings left">
+            <div class="building b1"><div class="window"></div></div>
+            <div class="building b2"></div>
+            <div class="building b3"></div>
+            <div class="building b4"></div>
+            <div class="building b5"></div>
+        </div>
+        
+        <!-- Buildings Right -->
+        <div class="buildings right">
+            <div class="building b6"></div>
+            <div class="building b7"></div>
+            <div class="building b8"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <a href="index.html">My BloxyRocks</a>
+        <span class="separator">|</span>
+        <a href="games.html">Games</a>
+        <span class="separator">|</span>
+        <a href="catalog.html">Catalog</a>
+        <span class="separator">|</span>
+        <a href="avatar.html">Avatar</a>
+        <span class="separator">|</span>
+        <a href="people.html">People</a>
+        <span class="separator">|</span>
+        <a href="builders-club.html">Builders Club</a>
+        <span class="separator">|</span>
+        <a href="contests.html">Contests</a>
+        <span class="separator">|</span>
+        <a href="forum.html">Forum</a>
+        <span class="separator">|</span>
+        <a href="news.html">News</a>
+        <span>🎮</span>
+        <span class="separator">|</span>
+        <a href="parents.html">Parents</a>
+        <span class="separator">|</span>
+        <a href="help.html">Help</a>
+    </nav>
+
+    <!-- Announcement Bar -->
+    <div class="announcement">
+        Are you an experienced BloRockian? Come help us out at our discord
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Login Panel -->
+        <div class="login-panel">
+            <div class="login-panel-header">Member Login</div>
+            <div class="login-panel-body">
+                <label>Username:</label>
+                <input type="text" id="username">
+                
+                <label>Password:</label>
+                <input type="password" id="password">
+                
+                <button>Login</button>
+                <button>Register</button>
+                
+                <a href="parent-login.html">Parent Login</a>
+                <a href="#">Forgot your password?</a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="report">[ report ]</div>
+            <div class="ad-space">Advertisement</div>
+        </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="bottom-section">
+        <!-- Featured Game Banner -->
+        <div class="featured-banner">
+            <div class="game-banner">
+                <div class="character"></div>
+                <div class="banner-text">
+                    <h2>BloxyRocks</h2>
+                    <p>The <span class="free">FREE</span> online<br>building game.</p>
+                </div>
+                <button class="banner-play-btn">▶ PLAY NOW</button>
+            </div>
+
+            <div class="featured-game">
+                <div class="featured-game-header">
+                    <strong>Featured Free Game:</strong> Modern Rescue Mission - WARTHOGS
+                </div>
+                <div class="featured-game-body">
+                    <div>
+                        <a href="#">placeholder</a> - 
+                        <a href="#">placeholder</a> - 
+                        <a href="#">placeholder</a> - a bloxyrocks free game
+                    </div>
+                    <button class="play-this-btn">Play This</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Parents Section -->
+        <div class="parents-section">
+            <div class="parents-header">Parents</div>
+            <div class="parents-body">
+                <div class="parents-content">
+                    <div class="parents-text">
+                        <p><strong>BloxyRocks Is Not affiliated</strong> a kid-friendly place on the internet where your children can exercise their creativity in a moderated online environment.</p>
+                        <p><strong>BloxyRocks Is Not affiliated</strong>  affiliated with K'Nex, The LEGO Group, or MEGA Brands Or Roblox.</p>
+                    </div>
+                    <div class="badges">
+                        <div class="badge-row">
+                            <div class="badge truste">TRUSTe</div>
+                            <div class="badge bbb">BBB</div>
+                        </div>
+                        <div class="badge check">✓</div>
+                    </div>
+                </div>
+                <div class="parents-buttons">
+                    <button>Learn More</button>
+                    <button>Parent Account</button>
+                    <button>Privacy Policy</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
